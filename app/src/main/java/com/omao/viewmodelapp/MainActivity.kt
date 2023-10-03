@@ -3,6 +3,7 @@ package com.omao.viewmodelapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.omao.viewmodelapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,5 +14,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,
             R.layout.activity_main)
+
+        binding.textView1.text = counter.toString()
+        binding.btn1.setOnClickListener() {
+            counter++
+            binding.textView1.text = counter.toString()
+        }
+
     }
 }
